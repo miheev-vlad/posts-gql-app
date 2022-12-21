@@ -40,3 +40,6 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# GraphQL generating types file
+resolvers-types.ts
