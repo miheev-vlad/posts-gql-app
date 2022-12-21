@@ -1,0 +1,9 @@
+schema: "https://graphqlzero.almansi.me/api"
+generates:
+  ./src/__generated__/resolvers-types.ts:
+    plugins:
+      - "typescript"
+      - "typescript-resolvers"
+    config:
+      useIndexSignature: true
+      contextType: "../index#MyContext"
