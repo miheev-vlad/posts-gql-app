@@ -1,0 +1,44 @@
+.radio-input-opacity {
+  opacity: 0.6;
+}
+
+.radio-disabled {
+  pointer-events: none;
+}
+
+.control-disabled {
+  cursor: not-allowed;
+}
+
+.radio-control {
+  cursor: pointer;
+}
+
+.radio-label {
+  margin-left: 0;
+  padding-left: 28px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.radio-title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  margin-bottom: 25px;
+}
+
+input {
+  width: 16px;
+  height: 16px;
+}
+
+.control-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 17px;
+}

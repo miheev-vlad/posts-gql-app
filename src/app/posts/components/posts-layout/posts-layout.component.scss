@@ -1,0 +1,8 @@
+.posts-layout {
+  display: flex;
+  justify-content: space-between;
+
+  &__left-content {
+    width: 100%;
+  }
+}
