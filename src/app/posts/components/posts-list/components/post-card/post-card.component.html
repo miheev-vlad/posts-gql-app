@@ -1,19 +1,20 @@
 <div class="post-card">
   <div class="post-card__header">
-    <div class="post-card__title">Title</div>
+    <div class="post-card__title">{{ postProps.title | titlecase }}</div>
     <div class="post-card__action">
-      <a [routerLink]="['/posts', 12345]" class="post-card__link">
+      <a [routerLink]="['/posts', postProps.id]" class="post-card__link">
         <app-arrow-right-icon></app-arrow-right-icon>
       </a>
     </div>
   </div>
   <div class="post-card__content">
     <div class="post-card__author">
-      <span class="property">Author</span><span class="value">author</span>
+      <span class="property">Author</span
+      ><span class="value">{{ postProps.user.name }}</span>
     </div>
     <div class="post-card__description">
       <span class="property">Description</span
-      ><span class="value">description</span>
+      ><span class="value">{{ postProps.body | truncateText : 25 }}</span>
     </div>
   </div>
 </div>

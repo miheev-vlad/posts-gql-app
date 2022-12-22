@@ -1,15 +1,22 @@
 <div class="posts-list">
   <div class="posts-list__title">Posts List</div>
-  <div class="posts-list__content">
+  <div
+    class="posts-list__content"
+    *ngIf="posts$ | async as posts; else processing">
     <div class="posts-list__cards">
-      <app-post-card></app-post-card>
-      <app-post-card></app-post-card>
-      <app-post-card></app-post-card>
-      <app-post-card></app-post-card>
-      <app-post-card></app-post-card>
+      <app-post-card
+        *ngFor="
+          let post of posts | filterPosts : searchTitleStr : commentAmount
+        "
+        [post]="post"></app-post-card>
     </div>
     <div class="posts-list__pagination">
-      <app-pagination></app-pagination>
+      <app-pagination
+        [currentPage]="currentPage"
+        [pagesCount]="pagesCount"></app-pagination>
     </div>
   </div>
+  <ng-template #processing>
+    <div class="posts-list__processing">Processing...</div>
+  </ng-template>
 </div>

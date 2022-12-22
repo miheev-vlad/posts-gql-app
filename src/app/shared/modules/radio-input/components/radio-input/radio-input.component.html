@@ -15,7 +15,8 @@
         name="radioValue"
         [checked]="radioItem.checked"
         formControlName="radioValue"
-        [value]="radioItem.value" />
+        [value]="radioItem.value"
+        (input)="onInput(radioItem.value)" />
       <label class="radio-label">{{ radioItem.label }}</label>
     </div>
   </form>
