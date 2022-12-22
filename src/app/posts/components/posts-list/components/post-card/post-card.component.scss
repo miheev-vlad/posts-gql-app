@@ -1,0 +1,63 @@
+.post-card {
+  width: 100%;
+  border-bottom: 1px solid var(--dawn);
+  margin-bottom: 40px;
+  padding-bottom: 29px;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 29px;
+  }
+
+  &__title {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+    margin-right: 23px;
+  }
+
+  &__link {
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+
+    .property {
+      margin-right: 104px;
+    }
+
+    .value {
+      color: var(--azul);
+    }
+  }
+
+  &__author {
+    width: 40%;
+  }
+
+  &__description {
+    width: 60%;
+  }
+}

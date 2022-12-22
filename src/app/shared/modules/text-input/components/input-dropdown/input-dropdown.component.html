@@ -1,0 +1,12 @@
+<div class="input-dropdown">
+  <div
+    class="input-dropdown__input-control"
+    *ngFor="let item of dropdownItemsProps">
+    <input
+      type="checkbox"
+      name="action"
+      id="track"
+      [value]="item.value"
+      (input)="onInput($event)" /><label for="track">{{ item.name }}</label>
+  </div>
+</div>

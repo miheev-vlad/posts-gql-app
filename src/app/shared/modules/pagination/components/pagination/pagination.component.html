@@ -1,0 +1,21 @@
+<div class="pagination">
+  <div class="pagination__previous">
+    <button type="button" (click)="onPrev()">
+      <app-chevron-left-icon
+        [fillColor]="
+          currentPageProps === 1 ? fillColorDisabled : fillColorAvailable
+        "></app-chevron-left-icon>
+    </button>
+  </div>
+  <div class="pagination__current-page">{{ currentPageProps }}</div>
+  <div class="pagination__next">
+    <button type="button" (click)="onNext()">
+      <app-chevron-right-icon
+        [fillColor]="
+          currentPageProps === pagesCountProps
+            ? fillColorDisabled
+            : fillColorAvailable
+        "></app-chevron-right-icon>
+    </button>
+  </div>
+</div>

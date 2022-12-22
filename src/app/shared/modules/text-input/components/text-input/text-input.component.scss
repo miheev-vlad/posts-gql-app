@@ -1,0 +1,67 @@
+input::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+input:focus {
+  outline: none;
+  border-bottom: 1px solid rgba(52, 124, 255, 1);
+  caret-color: rgba(52, 124, 255, 1);
+}
+
+input:disabled {
+  cursor: not-allowed;
+}
+
+.input-wrapper {
+  position: relative;
+  margin: 20px auto;
+}
+
+.input-control {
+  display: block;
+  margin: 0;
+  width: 100%;
+  padding-bottom: 7px;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  background-color: var(--white-0);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.control-label {
+  display: block;
+  position: absolute;
+  opacity: 0;
+  bottom: 20px;
+  color: rgba(0, 0, 0, 0.4);
+  transition: 0.2s ease-in-out transform;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.input-control:placeholder-shown + .control-label {
+  visibility: hidden;
+  z-index: -1;
+}
+
+.input-control:not(:placeholder-shown) + .control-label,
+.input-control:focus:not(:placeholder-shown) + .control-label {
+  visibility: visible;
+  z-index: 1;
+  opacity: 1;
+  transform: translateY(-10px);
+  transition: 0.1s ease-in-out transform;
+  border: none;
+}

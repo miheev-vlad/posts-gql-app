@@ -1,0 +1,22 @@
+<div class="radio-input" [class.radio-input-opacity]="isDisabledProps">
+  <div class="radio-title" *ngIf="radioTitleProps">
+    {{ radioTitleProps }}
+  </div>
+  <form [formGroup]="form">
+    <div
+      class="control-wrapper"
+      *ngFor="let radioItem of radioLabelsProps"
+      [title]="isDisabledProps ? tooltipMessageProps : ''"
+      [class.control-disabled]="isDisabledProps">
+      <input
+        class="radio-control"
+        [class.radio-disabled]="isDisabledProps"
+        type="radio"
+        name="radioValue"
+        [checked]="radioItem.checked"
+        formControlName="radioValue"
+        [value]="radioItem.value" />
+      <label class="radio-label">{{ radioItem.label }}</label>
+    </div>
+  </form>
+</div>
