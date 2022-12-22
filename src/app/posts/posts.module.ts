@@ -3,7 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { PaginationModule } from '../shared/modules/pagination/pagination.module';
 import { RadioInputModule } from '../shared/modules/radio-input/radio-input.module';
+import { SimpleTextInputModule } from '../shared/modules/simple-text-input/simple-text-input.module';
 import { TextInputModule } from '../shared/modules/text-input/text-input.module';
+import { SharedModule } from '../shared/shared.module';
 import { AuthorIdSearchInputComponent } from './components/posts-filter/components/authorId-search-input/authorId-search-input.component';
 import { CommentsAmountInputComponent } from './components/posts-filter/components/comments-amount-input/comments-amount-input';
 import { TitleSearchInputComponent } from './components/posts-filter/components/title-search-input/title-search-input.component';
@@ -21,6 +23,8 @@ import { PostsRoutingModule } from './posts-routing.module';
     PaginationModule,
     TextInputModule,
     RadioInputModule,
+    SharedModule,
+    SimpleTextInputModule,
   ],
   declarations: [
     PostsListComponent,

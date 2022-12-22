@@ -1,5 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Subscription } from 'rxjs';
+import { FilterService } from 'src/app/shared/services/filter.service';
 
 export interface RadioLabelsInterface {
   label: string;
@@ -12,8 +14,9 @@ export interface RadioLabelsInterface {
   templateUrl: './radio-input.component.html',
   styleUrls: ['./radio-input.component.scss'],
 })
-export class RadioInputComponent implements OnInit {
+export class RadioInputComponent implements OnInit, OnDestroy {
   form: FormGroup;
+  commentAmountSub: Subscription;
 
   // eslint-disable-next-line @angular-eslint/no-input-rename
   @Input('isDisabled') isDisabledProps = false;
@@ -24,14 +27,27 @@ export class RadioInputComponent implements OnInit {
   // eslint-disable-next-line @angular-eslint/no-input-rename
   @Input('radioTitle') radioTitleProps = '';
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private filterService: FilterService) {}
+
+  ngOnDestroy(): void {
+    this.commentAmountSub.unsubscribe();
+  }
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      radioValue: new FormControl({
-        radioValue: null,
-        disabled: this.isDisabledProps,
-      }),
+      radioValue: ['medium'],
     });
+
+    this.commentAmountSub = this.filterService.commentAmount.subscribe(
+      (commentAmount: string) => {
+        this.form.patchValue({
+          radioValue: commentAmount ? commentAmount : 'medium',
+        });
+      }
+    );
+  }
+
+  onInput(value: string): void {
+    this.filterService.setCommentAmount(value);
   }
 }

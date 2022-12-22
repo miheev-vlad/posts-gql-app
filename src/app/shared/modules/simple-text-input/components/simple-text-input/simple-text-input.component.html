@@ -1,0 +1,14 @@
+<div class="input-wrapper">
+  <input
+    [title]="isDisabledProps ? tooltipMessageProps : ''"
+    [disabled]="isDisabledProps"
+    type="text"
+    id="input"
+    class="input-control"
+    [placeholder]="placeholderProps"
+    (focus)="onFocus()"
+    (blur)="onBlur()"
+    [(ngModel)]="inputValue"
+    (input)="onInput()" />
+  <label for="input" class="control-label">{{ labelProps }}</label>
+</div>

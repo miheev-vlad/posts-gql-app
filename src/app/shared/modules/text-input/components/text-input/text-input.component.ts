@@ -55,12 +55,16 @@ export class TextInputComponent {
         item => item.value === this.selectedAuthorId
       )[0].name;
       this.inputValue = `Выбран: ${this.selectedAuthorName}`;
+      this.filterService.setSelectedAuthorId(+this.selectedAuthorId);
       this.filterService.setIsAuthorSelected();
     }
   }
 
   onInput(): void {
     this.filterService.clearIsAuthorSelected();
+    this.filterService.setSelectedAuthorId(null);
+    this.filterService.clearSearchTitleStr();
+    this.filterService.clearCommentAmount();
     this.inputValue = '';
   }
 }
